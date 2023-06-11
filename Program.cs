@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Runtime.Intrinsics.X86;
 
 internal class Program
@@ -52,16 +53,62 @@ internal class Program
         return max;
     }
 
-    //public static int countArray(int[] num)
-    //{
-    //    int max = 0;
-    //    if (num[i] > max)
-    //    {
-    //        max = num[i];
+    public static int countArrayEven(int[] num)
+    {
+        int countEven = 0;
+        int countOdd = 0;
+      
+        for (int i = 0; i < num.Length; i++)
+        {
+            if ((int.Parse(num[i].ToString()) % 2) == 0)
+                countEven++;
+            else
+                countOdd++;
+        }
+        return countEven;
+    }
 
-    //    }
-    //    return max;
+    public static int countArrayOdd(int[] num)
+    {
+        int countEven = 0;
+        int countOdd = 0;
+
+        for (int i = 0; i < num.Length; i++)
+        {
+            if ((int.Parse(num[i].ToString()) % 2) == 0)
+                countEven++;
+            else
+                countOdd++;
+        }
+        return countOdd;
+    }
+
+    //public static int secondLargest(int[] num)
+    //{
+    //    int second = 0;
+
     //}
+
+    public static int removeDuplicate(int[] num)
+    {
+        var sList = new ArrayList();
+
+        for (int i = 0; i < num.Length; i++)
+        {
+            if (sList.Contains(num[i]) == false)
+            {
+                sList.Add(num[i]);
+            }
+        }
+
+        var sNew = sList.ToArray();
+
+        for (int i = 0; i < sNew.Length; i++)
+        {
+            Console.Write(sNew[i]);
+        }
+        return num.Length;
+    }
 
     static void Main(string[] args)
     {
@@ -80,11 +127,15 @@ internal class Program
 
         Console.WriteLine("the sum is:" + sumArray(arr)); //15
         Console.WriteLine("the avg is:" + avgArray(arr)); //3
+
         Console.WriteLine("the max is :" + maxArray(arr)); //5
         Console.WriteLine("the min is :" + minArray(arr)); //1
-        //Console.WriteLine("count :" + countArray);  //5
-        //Console.WriteLine("second largest is :" + minArray); //4
-        //Console.WriteLine("remove duplicate :" + minArray); //0
+
+        Console.WriteLine("count for even :" + countArrayEven(arr));
+        Console.WriteLine("count for odd :" + countArrayOdd(arr));
+
+        //Console.WriteLine("second largest is :" + secondLargest(arr)); //4
+        Console.WriteLine("remove duplicate :" + removeDuplicate(arr)); //0
 
 
 

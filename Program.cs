@@ -31,6 +31,25 @@ internal class Program
         return sum;
     }
 
+    static void avgMultiDiemensional(int[,] arr)
+    {
+        //Write a program that takes a 2D array of integers as input and
+        //calculates the average value for each row.
+        //Display the average value of each row as the output.
+
+        for (int row = 0; row < arr.GetLength(0); row++)
+        {
+            float rowAvg = 0;
+            for (int column = 0; column < arr.GetLength(1); column++)
+            {
+                // sum += arr[row, column];
+                rowAvg += arr[row, column];
+            }
+            rowAvg = rowAvg / arr.GetLength(1);
+        }
+        return ;
+    }
+
     static int sumArray(int[] num)
     {
         int sum = 0;
@@ -189,21 +208,30 @@ internal class Program
         //}
         //--------------------------------------------------------------
 
-        //--------------------------------------------------
-        //Write a program that takes a 2D array of integers as input and
-        //calculates the average value for each row.
-        //Display the average value of each row as the output.
+        int totalRows = 3;
+        int totalCols = 2;
+        int[,] tra = new int[totalRows, totalCols];
+        tra[0, 0] = 30;
+        tra[0, 1] = 35;
+        tra[1, 0] = 40;
+        tra[1, 1] = 45;
+        tra[2, 0] = 50;
+        tra[2, 1] = 55;
+        Console.WriteLine("The sum is :"+sumMultiDiemensional(tra));
+        for (int row = 0; row < tra.GetLength(0); row++)
+        {
+            int Avg = 0;
+            for (int column = 0; column < tra.GetLength(1); column++)
+            {
+                Console.Write(tra[column, row] + " ");
+                Avg += tra[column, row];
+            }
+            Avg = Avg / totalRows;
+            Console.Write("Average is" + avgMultiDiemensional);
+            Console.WriteLine(" ");
+        }
 
-            int totalRows = 3;
-            int totalCols = 2;
-            int[,] tra = new int[totalRows, totalCols];
-            tra[0, 0] = 30;
-            tra[0, 1] = 35;
-            tra[1, 0] = 40;
-            tra[1, 1] = 45;
-            tra[2, 0] = 50;
-            tra[2, 1] = 55;
-            Console.WriteLine("The sum is :"+sumMultiDiemensional(tra));
+
 
 
     }
